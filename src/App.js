@@ -11,11 +11,9 @@ import {
 import Sign_Up from "./Registration/Sign_up";
 import Store from "./Dashbord/Store/Store";
 import Checkout from "./Dashbord/Checkout/chekout";
-import {
-  auth,
-  createUserProfileDocument,
-} from "./firebase/firebase.util";
+import { auth, createUserProfileDocument } from "./firebase/firebase.util";
 import Dashbord from "./Dashbord";
+import Sign_in from "./Login/Sign_in";
 function App() {
   const [selectmode, setmode] = useState(false);
   //firebase signin usestate.
@@ -25,7 +23,9 @@ function App() {
 
   const [product_details, select_product] = useState([]);
   const [addcart, setcart] = useState([]);
+console.log(Sign_user.userAuth)
 
+ 
   const fetchData = () => {
     fetch("https://fakestoreapi.com/products?limit=10")
       .then((response) => {
@@ -46,6 +46,7 @@ function App() {
           () => {}
         );
       }
+     
       set_Sign_user({ userAuth });
 
       return () => {
@@ -76,10 +77,10 @@ function App() {
           }
         />
         <Route
-          exact
+          
           path="/Sign_in"
           element={
-            !Sign_user ? <Navigate to="/" /> : <Login Sign_user={Sign_user} />
+            Sign_user.userAuth === null ?<Login Sign_user={Sign_user}  />:<Navigate to="/" />
           }
         />
 
