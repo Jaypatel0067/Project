@@ -1,9 +1,15 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import Header from '../Dashbord/Header/Header';
 
-
-function Sign_up() {
+function Sign_up({setmode,addcart,Sign_user}) {
   return (
+    <>
+    <Header
+    setmode={setmode}
+    addcart={addcart}
+    Sign_user={Sign_user}
+  />
     <div className='bgcolor'>
       
     <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -12,6 +18,8 @@ function Sign_up() {
       <div>
       <Link to="/">
       <h1 className='text-3xl text-center font-extrabold text-white-900'>E-commerce</h1></Link>
+      <h2 className="mt-6 text-center text-3xl font-bold text-white-900">Sign Up to your new account</h2>
+
         <h2 className="mt-6 text-center text-3xl font-extrabold text-white-900">Sign up</h2>
         
       </div>
@@ -79,6 +87,7 @@ function Sign_up() {
     </div>
   </div>
 </div>
+</>
   )
 }
 

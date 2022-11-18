@@ -1,13 +1,18 @@
 import React from 'react'
-
+import Header from '../Dashbord/Header/Header'
 import './sign_in.css'
 import {signInWithGoogle} from '../firebase/firebase.util'
 import { Link } from "react-router-dom";
 
-function Sign_in({Sign_user}) {
+function Sign_in({Sign_user,addcart,setmode}) {
   console.log(signInWithGoogle)
     return (
-    
+      <>
+      <Header
+      setmode={setmode}
+      addcart={addcart}
+      Sign_user={Sign_user}
+    />
     <div className='bgcolor'>
     <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div className="max-w-md w-full space-y-8 Card">
@@ -96,6 +101,7 @@ function Sign_in({Sign_user}) {
     </div>
   </div>
 </div>
+</>
   )
 }
 
